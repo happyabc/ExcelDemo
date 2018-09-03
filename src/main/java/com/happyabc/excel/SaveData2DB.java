@@ -16,7 +16,7 @@ public class SaveData2DB {
 
     @SuppressWarnings({"rawtypes"})
     public void save() throws IOException, SQLException {
-        ReadExcel xlsMain = new ReadExcel();
+        ReadStudentExcel xlsMain = new ReadStudentExcel();
         Student student = null;
         List<Student> list = xlsMain.getStudentExcel();
 

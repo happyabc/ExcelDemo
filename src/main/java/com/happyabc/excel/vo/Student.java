@@ -17,19 +17,19 @@ public class Student {
      */
     private Integer id;
     /**
-     * 学号
+     * 瀛﹀彿
      */
     private String no;
     /**
-     * 姓名
+     * 濮撳悕
      */
     private String name;
     /**
-     * 学院
+     * 瀛﹂櫌
      */
     private String age;
     /**
-     * 成绩
+     * 鎴愮哗
      */
     private String score;
 
