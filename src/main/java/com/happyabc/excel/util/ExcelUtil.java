@@ -2,12 +2,15 @@ package com.happyabc.excel.util;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Description: Excel操作工具类
@@ -53,25 +56,62 @@ public class ExcelUtil {
         }
     }
 
-
-    public static Object getValue(Cell cell) {
+    /**
+     * Execl 值转换
+     *
+     * @param cell
+     * @return
+     */
+    public static Object getObjectValue(Cell cell) {
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
         Object obj = null;
         switch (cell.getCellTypeEnum()) {
+            case BLANK:
+                // 空白格
+                obj = cell.getStringCellValue();
+                break;
             case BOOLEAN:
+                // 布尔型
                 obj = cell.getBooleanCellValue();
                 break;
             case ERROR:
+                // 错误
                 obj = cell.getErrorCellValue();
                 break;
             case NUMERIC:
+                // 数字||日期
                 obj = cell.getNumericCellValue();
+                boolean cellDateFormatted = DateUtil.isCellDateFormatted(cell);
+                if (cellDateFormatted) {
+                    Date dateCellValue = cell.getDateCellValue();
+                    obj = fmt.format(dateCellValue);
+                } else {
+                    double numericCellValue = cell.getNumericCellValue();
+                    obj = numericCellValue;
+                }
                 break;
             case STRING:
                 obj = cell.getStringCellValue();
                 break;
+
             default:
                 break;
         }
         return obj;
+    }
+
+    /**
+     * Execl 值转换
+     *
+     * @param cell
+     * @return
+     */
+    public static String getStringValue(Cell cell) {
+        if (null != cell) {
+            Object obj = getObjectValue(cell);
+            return String.valueOf(obj);
+        } else {
+            return "";
+        }
     }
 }

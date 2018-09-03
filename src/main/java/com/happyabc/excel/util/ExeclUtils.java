@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ExeclUtils {
-//    public static String getValue(Cell hssfCell) {
+//    public static String getObjectValue(Cell hssfCell) {
 //        if (hssfCell.getCellType() == CellType.BOOLEAN.getCode()) {
 //            // 返回布尔类型的值
 //            return String.valueOf(hssfCell.getBooleanCellValue());

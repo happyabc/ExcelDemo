@@ -40,12 +40,12 @@ public class ReadPolicyExcel {
                     policyDO.setInsName(ExeclUtils.getValue(hssfRow.getCell(0)));
                     policyDO.setPolicyNo(ExeclUtils.getValue(hssfRow.getCell(1)));
                     policyDO.setPolicyType(ExeclUtils.getValue(hssfRow.getCell(2)));
-//                    policyDO.setLiabilityStartDt(new Date(ExeclUtils.getValue(hssfRow.getCell(3))));
+//                    policyDO.setLiabilityStartDt(new Date(ExeclUtils.getObjectValue(hssfRow.getCell(3))));
                     policyDO.setApplicant(ExeclUtils.getValue(hssfRow.getCell(4)));
                     policyDO.setApplicantId(ExeclUtils.getValue(hssfRow.getCell(5)));
                     policyDO.setInsuredName(ExeclUtils.getValue(hssfRow.getCell(6)));
                     policyDO.setInsuredId(ExeclUtils.getValue(hssfRow.getCell(7)));
-//                    policyDO.setPaymentDate(new Date(ExeclUtils.getValue(hssfRow.getCell(8))));
+//                    policyDO.setPaymentDate(new Date(ExeclUtils.getObjectValue(hssfRow.getCell(8))));
                     policyDO.setInsFee(new BigDecimal(ExeclUtils.getValue(hssfRow.getCell(9))));
                     policyDO.setCommissionRate(new BigDecimal(ExeclUtils.getValue(hssfRow.getCell(10))));
                     policyDO.setPolicyStatus(ExeclUtils.getValue(hssfRow.getCell(11)));
