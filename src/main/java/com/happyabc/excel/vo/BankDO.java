@@ -4,14 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Student
+ * BankDO
  *
  * @author happyabc
  * @created 2018-7-22
  */
 @Setter
 @Getter
-public class Student {
+public class BankDO {
     /**
      * id
      */
