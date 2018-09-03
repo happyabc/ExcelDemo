@@ -17,6 +17,7 @@ public class Common {
 
     // common
     public static final String EXCEL_PATH = "doc/bank.xls";
+    public static final String EXCEL_CAP_PATH = "doc/cap_template.xls";
 
     /**
      * sql
