@@ -8,7 +8,7 @@ public class Common {
 
     // connect the database
     public static final String DRIVER = "com.mysql.jdbc.Driver";
-    public static final String DB_NAME = "xdy-yx";
+    public static final String DB_NAME = "ft_cap_00";
     public static final String USERNAME = "root";
     public static final String PASSWORD = "123456";
     public static final String IP = "127.0.0.1";
@@ -18,7 +18,9 @@ public class Common {
     // common
     public static final String EXCEL_PATH = "doc/bank.xls";
 
-    // sql
+    /**
+     * sql
+     */
     public static final String INSERT_STUDENT_SQL = "insert into student_info(no, name, age, score,a,b) values(?, ?, ?, ?, ?, ?)";
     public static final String UPDATE_STUDENT_SQL = "update student_info set no = ?, name = ?, age= ?, score = ? where id = ? ";
     public static final String SELECT_STUDENT_ALL_SQL = "select id,no,name,age,score from student_info";

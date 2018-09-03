@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class ReadExcel {
 
-    public List<Student> readXls() throws IOException {
+    public List<Student> getStudentExcel() throws IOException {
         InputStream is = new FileInputStream(Common.EXCEL_PATH);
         HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is);
         Student student = null;
@@ -35,18 +35,12 @@ public class ReadExcel {
                 HSSFRow hssfRow = hssfSheet.getRow(rowNum);
                 if (hssfRow != null) {
                     student = new Student();
-                    HSSFCell no = hssfRow.getCell(0);
-                    HSSFCell name = hssfRow.getCell(1);
-                    HSSFCell age = hssfRow.getCell(2);
-                    HSSFCell score = hssfRow.getCell(3);
-                    HSSFCell a = hssfRow.getCell(4);
-                    HSSFCell b = hssfRow.getCell(5);
-                    student.setNo(getValue(no));
-                    student.setName(getValue(name));
-                    student.setAge(getValue(age));
-                    student.setScore(getValue(score));
-                    student.setA(getValue(a));
-                    student.setB(getValue(b));
+                    student.setNo(getValue(hssfRow.getCell(0)));
+                    student.setName(getValue(hssfRow.getCell(1)));
+                    student.setAge(getValue(hssfRow.getCell(2)));
+                    student.setScore(getValue(hssfRow.getCell(3)));
+                    student.setA(getValue(hssfRow.getCell(4)));
+                    student.setB(getValue(hssfRow.getCell(5)));
                     list.add(student);
                 }
             }
@@ -54,12 +48,11 @@ public class ReadExcel {
         return list;
     }
 
-    @SuppressWarnings("static-access")
     private String getValue(HSSFCell hssfCell) {
-        if (hssfCell.getCellType() == hssfCell.CELL_TYPE_BOOLEAN) {
+        if (hssfCell.getCellType() == HSSFCell.CELL_TYPE_BOOLEAN) {
             // 返回布尔类型的值
             return String.valueOf(hssfCell.getBooleanCellValue());
-        } else if (hssfCell.getCellType() == hssfCell.CELL_TYPE_NUMERIC) {
+        } else if (hssfCell.getCellType() == HSSFCell.CELL_TYPE_NUMERIC) {
             // 返回数值类型的值
             return String.valueOf(hssfCell.getNumericCellValue());
         } else {

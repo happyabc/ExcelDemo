@@ -18,7 +18,7 @@ public class SaveData2DB {
     public void save() throws IOException, SQLException {
         ReadExcel xlsMain = new ReadExcel();
         Student student = null;
-        List<Student> list = xlsMain.readXls();
+        List<Student> list = xlsMain.getStudentExcel();
 
         for (int i = 0; i < list.size(); i++) {
             student = list.get(i);
